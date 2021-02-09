@@ -1,0 +1,77 @@
+<div class="container col-sm-10 col-lg-5 offset-lg-5">
+  <form class="">
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control border
+        backgr-pink border-pink rounded-0 is-invalid" 
+        name="item" [ngClass]="{'is-invalid':isError}"
+        [ngModel]="item" (ngModelChange)="itemChange($event)"/>
+      <div class="input-group-append backgr-darkPink ">
+        <button
+          type="button"
+          class="btn btn-outline-secondaryborder-pink text-white"
+          (click)="addItem()">
+          Submit
+        </button>
+      </div>
+      <div class="invalid-feedback" >Enter the name</div>
+   
+       </div>
+    <div>
+      <div>
+      <h5 class="mb-3 mt-3 font-weight-bold">
+        Unpacked Items ({{ checkboxUIElements.length }})
+      </h5>
+      <div class="form-group">
+        <input
+          type="search"
+          class="form-control border-pink rounded-0 "
+          name="unPackItem"
+          [(ngModel)]="unPackItem"/>
+      </div>
+      <div class="form-check mb-2"
+        *ngFor="let item of checkboxUIElements|filterItems:unPackItem; let i = index">
+        <label class="form-check-label ml-1">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            (click)="removeFruit(i, 1)"/>
+          {{ item }}</label>
+        <button
+          type="button"
+          class="btn btn-danger bg-white border-white text-danger"
+          (click)="removeFruit(i, 1)">
+          Remove
+        </button>
+      </div>
+      </div>
+      <div>
+      <h5 class="mb-3 mt-3 font-weight-bold">
+        Packed Items ({{ removeCheckBox.length }})
+      </h5>
+      <div class="form-group">
+        <input
+          type="search"
+          class="form-control border-pink rounded-0 "
+          name="packItem"
+          [(ngModel)]="packItem"/>
+      </div>
+      <div *ngFor="let item of removeCheckBox|filterItems:packItem; let i = index" class="form-check mb-2">
+        <label class="form-check-label ml-1">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            (click)="removeFruit(i, 2)"/>
+          {{ item }}</label>
+        <button
+          type="button"
+          class="btn btn-danger bg-white border-white text-danger"
+          (click)="removeFruit(i, 2)">
+          Remove
+        </button>
+      </div>
+      </div>
+    </div>
+  </form>
+</div>

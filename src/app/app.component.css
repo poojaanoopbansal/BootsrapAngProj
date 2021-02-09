@@ -1,0 +1,16 @@
+.backgr-pink {
+  background-color: #fbbfcd;
+}
+
+.border-pink {
+  border-color: #f32e5b!important;
+}
+
+.backgr-darkPink {
+  background-color: #f32e5b;
+}
+
+input:focus {
+  border-color: blue!important;
+}
+
