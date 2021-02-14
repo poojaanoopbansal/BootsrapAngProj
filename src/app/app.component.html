@@ -1,77 +1,236 @@
-<div class="container col-sm-10 col-lg-5 offset-lg-5">
-  <form class="">
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control border
-        backgr-pink border-pink rounded-0 is-invalid" 
-        name="item" [ngClass]="{'is-invalid':isError}"
-        [ngModel]="item" (ngModelChange)="itemChange($event)"/>
-      <div class="input-group-append backgr-darkPink ">
-        <button
-          type="button"
-          class="btn btn-outline-secondaryborder-pink text-white"
-          (click)="addItem()">
-          Submit
-        </button>
-      </div>
-      <div class="invalid-feedback" >Enter the name</div>
-   
-       </div>
-    <div>
-      <div>
-      <h5 class="mb-3 mt-3 font-weight-bold">
-        Unpacked Items ({{ checkboxUIElements.length }})
-      </h5>
-      <div class="form-group">
-        <input
-          type="search"
-          class="form-control border-pink rounded-0 "
-          name="unPackItem"
-          [(ngModel)]="unPackItem"/>
-      </div>
-      <div class="form-check mb-2"
-        *ngFor="let item of checkboxUIElements|filterItems:unPackItem; let i = index">
-        <label class="form-check-label ml-1">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            (click)="removeFruit(i, 1)"/>
-          {{ item }}</label>
-        <button
-          type="button"
-          class="btn btn-danger bg-white border-white text-danger"
-          (click)="removeFruit(i, 1)">
-          Remove
-        </button>
-      </div>
-      </div>
-      <div>
-      <h5 class="mb-3 mt-3 font-weight-bold">
-        Packed Items ({{ removeCheckBox.length }})
-      </h5>
-      <div class="form-group">
-        <input
-          type="search"
-          class="form-control border-pink rounded-0 "
-          name="packItem"
-          [(ngModel)]="packItem"/>
-      </div>
-      <div *ngFor="let item of removeCheckBox|filterItems:packItem; let i = index" class="form-check mb-2">
-        <label class="form-check-label ml-1">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            (click)="removeFruit(i, 2)"/>
-          {{ item }}</label>
-        <button
-          type="button"
-          class="btn btn-danger bg-white border-white text-danger"
-          (click)="removeFruit(i, 2)">
-          Remove
-        </button>
-      </div>
+<div class="container my-5">
+  <div class="bg-primary row">
+    <div class="col-3">
+      <div class="container h-100">
+        <nav class="navbar navbar-expand-sm navbar-dark mb-3 h-100">
+          <div class="h-100">
+            <button
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+            >
+              <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse h-100" id="navbarNav">
+              <ul class="nav left-nav flex-column text-white text-center h-100">
+                <li class="nav-item pt-2">
+                  <i class="fa fa-user-circle fa-5x"></i>
+                  <div>Devinder Kumar</div>
+                  <div class="text-info">Chief officer</div>
+                  <div class="border p-1 rounded-pill border-info">
+                    Update Profile
+                  </div>
+                </li>
+                <li class="nav-item pt-5">
+                  <i class="fa fa-tv fa-5x"></i>
+                  <div>DASHBOARD</div>
+                </li>
+                <li class="nav-item pt-5">
+                  <i class="fa fa-book fa-5x"></i>
+                  <div>JOBS</div>
+                </li>
+                <li class="nav-item pt-5">
+                  <i class="fa fa-file-text-o fa-5x" aria-hidden="true"></i>
+                  <div>SEA DOCS</div>
+                </li>
+                <li class="nav-item pt-5">
+                  <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+                  <div>CONNECTIONS</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
-  </form>
+    <div class="col-9 p-0 bg-white">
+      <nav class="navbar navbar-expand-sm navbar-light mb-3">
+        <div class="container">
+          <span class="navbar-brand" href="#">
+            <i class="fa fa-search"></i>
+          </span>
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Questions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Companies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="px-5 py-5 bg-light">
+        <div class="row pl-2 mx-0">
+          <div class="w-100">
+            <div class="d-flex justify-content-between">
+              <div class="font-weight-bold">Master</div>
+              <div class="d-flex pr-1">
+                <div class="border p-1 px-4 mr-3 rounded-pill border-info">
+                  Active
+                </div>
+                <div class="mr-3"><i class="pt-2 fa fa-undo"></i></div>
+                <div class="mr-3"><i class="pt-2 fa fa-edit"></i></div>
+                <div class="mr-3">
+                  <i class="pt-2 fa fa-trash" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+            <div>
+              Chemical Tanker
+            </div>
+          </div>
+        </div>
+        <div class="row mx-0">
+          <nav class="navbar-expand-md navbar-light w-100">
+            <ul class="navbar-nav nav-pills">
+              <li class="nav-item" *ngFor="let tab of tabName; let i = index">
+                <a
+                  class="nav-link"
+                  [ngClass]="i === selectedTab ? 'active' : ''"
+                  (click)="itemClicked(i)"
+                  href="#"
+                  >{{ tab }}</a
+                >
+              </li>
+            </ul>
+            <hr class="mt-0 w-100" />
+          </nav>
+        </div>
+        <div class="row">
+          <div class=" col-md-12 col-lg-7 mr-4 bg-white">
+            <div class="row p-4 bg-white">
+              Job Description
+            </div>
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Rank</div>
+              <div class="col">Master</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Shit Type</div>
+              <div class="col">Chemical Tanker</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Min. Experience</div>
+              <div class="col">06 Months</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">US Visa</div>
+              <div class="col">Required</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Approx Joining</div>
+              <div class="col">20 September 2016</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Salary</div>
+              <div class="col">5000 USD</div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Ship Details</div>
+              <div class="col">
+                Chembuk gibriater<br />
+                <span>20000 DWT</span><br />
+                <span>2010 Built</span>
+              </div>
+            </div>
+            <hr class="m-0" />
+            <div class="row pl-4 py-2 bg-white">
+              <div class="col px-0">Description</div>
+              <div class="col">
+                Donec egestas vitae mi et feugiat. Quisque urna mi, vestibulum
+                sit amet congue quis, imperdiet quis dui. Pellentesque rhoncus,
+                justo et sollicitudin feuglat ante uma fringilla nisl, eu
+                laoreet leo leo in velit.ante urna fringilla nisl, eu laoreet
+                leo leo in velit.ante urna fringilla nisl, eu laoreet leo leo in
+                velit
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+              <div class="row p-4 bg-white text-white mb-4 ">
+                <span>
+                  <i class="fa fa-facebook rounded-circle p-3 bg-darkBlue"></i>
+                </span>
+                <span class="text-dark p-3"> Share on Facebook </span>
+              </div>
+              <div class="row p-4 bg-white">
+                <div class="row mb-3 pl-3">Other Jobs</div>
+                <div class="container">
+                  <div class="row mb-3">
+                    <span
+                      ><i class="fa fa-truck fa-3x" aria-hidden="true"></i>
+                    </span>
+                    <span class="ml-3 d-flex flex-column ">
+                      <span>Master</span>
+                      <span> Chemical Tanker</span>
+                      <span>Posted: 20 Aug 2016</span>
+                    </span>
+                  </div>
+                </div>
+                <hr class="m-0" />
+                <div class="container mt-3">
+                  <div class="row mb-3">
+                    <span
+                      ><i class="fa fa-truck fa-3x" aria-hidden="true"></i>
+                    </span>
+                    <span class="ml-3 d-flex flex-column ">
+                      <span>Chief Officer</span>
+                      <span> Oil Tanker</span>
+                      <span>Posted: 20 Aug 2016</span>
+                    </span>
+                  </div>
+                </div>
+                <hr class="m-0" />
+                <div class="container mt-3">
+                  <div class="row mb-3">
+                    <span
+                      ><i class="fa fa-truck fa-3x" aria-hidden="true"></i>
+                    </span>
+                    <span class="ml-3 d-flex flex-column ">
+                      <span>Executive Officer</span>
+                      <span>Bulk Carrier</span>
+                      <span>Posted: 20 Aug 2016</span>
+                    </span>
+                  </div>
+                </div>
+                <hr class="m-0" />
+                <div class="container mt-3">
+                  <div class="row mb-3">
+                    <span
+                      ><i class="fa fa-truck fa-3x" aria-hidden="true"></i>
+                    </span>
+                    <span class="ml-3 d-flex flex-column ">
+                      <span>Master</span>
+                      <span> Chemical Tanker</span>
+                      <span>Posted: 20 Aug 2016</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,37 @@
-.backgr-pink {
-  background-color: #fbbfcd;
+li {
+  height: 20%;
 }
 
-.border-pink {
-  border-color: #f32e5b!important;
+a.active {
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #3399ff !important;
+  color: #3399ff !important;
+  background-color: transparent !important;
+}
+.nav-pills > li > a {
+  border-radius: 0px;
 }
 
-.backgr-darkPink {
-  background-color: #f32e5b;
+.bg-darkBlue {
+  background-color: #0b0b61;
 }
 
-input:focus {
-  border-color: blue!important;
+@media (max-width: 1200px) {
+  .left-nav {
+    font-size: 12px;
+  }
 }
-
+@media (max-width: 992px) {
+  .left-nav {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .left-nav {
+    font-size: 8px;
+  }
+}
