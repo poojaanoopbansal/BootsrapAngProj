@@ -35,3 +35,9 @@ a.active {
     font-size: 8px;
   }
 }
+
+@media (min-width: 768px) {
+  .small-screen-right-margin {
+    margin-right: 4em!important;
+  }
+}
